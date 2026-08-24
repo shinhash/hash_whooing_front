@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Noto Sans KR', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-bg: #0f1117;
+  --color-surface: #161b27;
+  --color-surface2: #1e2535;
+  --color-border: #2a3348;
+  --color-primary: #2dd4bf;
+  --color-primary-dim: #0f766e;
+  --color-text: #e2e8f0;
+  --color-muted: #64748b;
+  --color-positive: #34d399;
+  --color-negative: #f87171;
+  --color-warning: #fbbf24;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #2a3348 transparent;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+.py-50 {
+    padding-block: calc(var(--spacing) * 50);
+}
