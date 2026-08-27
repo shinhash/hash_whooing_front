@@ -4,12 +4,6 @@ import { LedgerIcon, EyeIcon, EyeOffIcon } from "../../comm/ui/icons";
 import { useLocation, useNavigate } from 'react-router';
 import { useAuth } from '../../app/providers/AuthProvider';
 
-type Props = {
-  onLogin: () => void;
-  onGoSignup: () => void;
-};
-
-// export default function Login({ onLogin, onGoSignup }: Props) {
 export default function Login() {
   const [showPw, setShowPw] = useState(false);
   const [loading, setLoading] = useState(false);

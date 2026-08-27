@@ -18,12 +18,16 @@ import { RouteErrorBoundary } from './routes/RouteErrorBoundary';
 const withSuspense = (node: ReactNode) => <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}><Loader size={100} label='loading...' /></div>}>{node}</Suspense>;
 
 const Login = lazy(() => import('../pages/auth/Login'));
+
 const LedgerListPage = lazy(() => import('../pages/ledger/LedgerListPage'));
 const LedgerDashboardPage = lazy(() => import('../pages/ledger/LedgerDashboardPage'));
+
 const TransactionListPage = lazy(() => import('../pages/transaction/TransactionListPage'));
 const TransactionNewPage = lazy(() => import('../pages/transaction/TransactionNewPage'));
 const TransactionEditPage = lazy(() => import('../pages/transaction/TransactionEditPage'));
+
 const AccountManagePage = lazy(() => import('../pages/account/AccountManagePage'));
+
 const ReportPage = lazy(() => import('../pages/report/ReportPage'));
 // const MemberManagePage = lazy(() => import('../pages/member/MemberManagePage'));
 const SettingsPage = lazy(() => import('../pages/settings/SettingsPage'));
@@ -56,9 +60,9 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <RootLayout />
-      </ProtectedRoute>
+      // </ProtectedRoute>
     ),
     errorElement: <RouteErrorBoundary />,
     children: [
