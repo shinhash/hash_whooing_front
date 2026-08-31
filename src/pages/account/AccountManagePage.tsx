@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 export default function AccountManagePage() {
   const { ledgerId } = useParams<{ ledgerId: string }>();

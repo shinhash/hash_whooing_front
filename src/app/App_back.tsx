@@ -6,7 +6,7 @@ import Journal from "../pages/Journal";
 import Reports from "../pages/Reports";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import {LedgerIcon, GridIcon, ListIcon, PenIcon, BookIcon, ChartIcon, MenuIcon} from "../comm/ui/icons"
+import {LedgerIcon, GridIcon, ListIcon, PenIcon, BookIcon, ChartIcon, MenuIcon} from "../comm/ui/Icons"
 
 type AuthScreen = "login" | "signup" | "app";
 

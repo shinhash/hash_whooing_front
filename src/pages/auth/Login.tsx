@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoaderScreen from "../../comm/ui/Loader";
-import { LedgerIcon, EyeIcon, EyeOffIcon } from "../../comm/ui/icons";
+import { LedgerIcon, EyeIcon, EyeOffIcon } from "../../comm/ui/Icons";
 import { useLocation, useNavigate } from 'react-router';
 import { useAuth } from '../../app/providers/AuthProvider';
 

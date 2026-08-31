@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router';
 import { useState } from "react";
 
 import { useAuth } from '../providers/AuthProvider';
-import {LedgerIcon, GridIcon, ListIcon, PenIcon, BookIcon, ChartIcon, MenuIcon} from "../../comm/ui/icons"
+import {LedgerIcon, GridIcon, ListIcon, PenIcon, BookIcon, ChartIcon, MenuIcon} from "../../comm/ui/Icons"
 
 export function RootLayout() {
   const { user, logout } = useAuth();

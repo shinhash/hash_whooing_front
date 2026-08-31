@@ -60,9 +60,9 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <ProtectedRoute>
+      <ProtectedRoute>
         <RootLayout />
-      // </ProtectedRoute>
+      </ProtectedRoute>
     ),
     errorElement: <RouteErrorBoundary />,
     children: [
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedLedgerRoute>
             <LedgerLayout />
-           </ProtectedLedgerRoute>
+          </ProtectedLedgerRoute>
         ),
         children: [
           { index: true, element: withSuspense(<LedgerDashboardPage />) },
@@ -86,8 +86,8 @@ export const router = createBrowserRouter([
             path: 'members',
             element: (
               <ProtectedLedgerRoute requiredRole={['OWNER', 'EDITOR']}>
-                 {/* {withSuspense(<MemberManagePage />)} */}
-               </ProtectedLedgerRoute>
+                {/* {withSuspense(<MemberManagePage />)} */}
+              </ProtectedLedgerRoute>
             ),
           },
         ],
