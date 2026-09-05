@@ -4,8 +4,8 @@ import Transactions from "../pages/Transactions";
 import Accounts from "../pages/Accounts";
 import Journal from "../pages/Journal";
 import Reports from "../pages/Reports";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
+// import Login from "../pages/Login";
+// import Signup from "../pages/auth/Signup";
 import {LedgerIcon, GridIcon, ListIcon, PenIcon, BookIcon, ChartIcon, MenuIcon} from "../comm/ui/Icons"
 
 type AuthScreen = "login" | "signup" | "app";

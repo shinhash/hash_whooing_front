@@ -1,9 +1,12 @@
 import { useState } from "react";
+import LoaderScreen from "../../comm/ui/Loader";
+import { LedgerIcon, EyeIcon, EyeOffIcon } from "../../comm/ui/Icons";
+import { useLocation, useNavigate } from 'react-router';
 
-type Props = {
-  onSignup: () => void;
-  onGoLogin: () => void;
-};
+// type Props = {
+//   onSignup: () => void;
+//   onGoLogin: () => void;
+// };
 
 type Field = "name" | "email" | "phone" | "password" | "passwordConfirm";
 
@@ -14,7 +17,13 @@ function formatPhone(raw: string) {
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
 }
 
-export default function Signup({ onSignup, onGoLogin }: Props) {
+export default function JoinUs() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ProtectedRoute에서 state.from으로 전달한 원래 목적지가 있으면 그곳으로, 없으면 /ledgers로 이동
+  const from = (location.state as { from?: Location })?.from?.pathname ?? '/ledgers';
+  
   const [form, setForm] = useState({ name: "", email: "", phone: "", password: "", passwordConfirm: "" });
   const [showPw, setShowPw] = useState(false);
   const [showPw2, setShowPw2] = useState(false);
@@ -52,6 +61,15 @@ export default function Signup({ onSignup, onGoLogin }: Props) {
     }, 900);
   }
 
+  /**
+   * FUNCTION LINE
+   */
+  const moveLoginPage = () => {
+    navigate('/login');
+  }
+
+  if(loading) return(<LoaderScreen size={100} label="loading..." />);
+
   if (step === "done") {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#0f1117] px-6">
@@ -67,7 +85,6 @@ export default function Signup({ onSignup, onGoLogin }: Props) {
             <span className="text-[#2dd4bf]">{form.name}</span>님, 후잉 부기에 오신 걸 환영합니다.
           </p>
           <button
-            onClick={onSignup}
             className="mt-8 w-full rounded-lg bg-[#2dd4bf] py-3 text-sm font-semibold text-[#0f1117] hover:opacity-90 transition-opacity"
           >
             시작하기
@@ -252,7 +269,7 @@ export default function Signup({ onSignup, onGoLogin }: Props) {
 
           <p className="mt-6 text-center text-sm text-[#64748b]">
             이미 계정이 있으신가요?{" "}
-            <button onClick={onGoLogin} className="font-medium text-[#2dd4bf] hover:underline">
+            <button onClick={moveLoginPage} className="font-medium text-[#2dd4bf] hover:underline">
               로그인
             </button>
           </p>
@@ -280,31 +297,3 @@ function Field({ label, error, children }: { label: string; error?: string; chil
   );
 }
 
-function LedgerIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-      <rect x="2" y="2" width="12" height="2" rx="1" />
-      <rect x="2" y="6" width="8" height="2" rx="1" />
-      <rect x="2" y="10" width="10" height="2" rx="1" />
-      <rect x="2" y="14" width="6" height="1.5" rx="0.75" />
-    </svg>
-  );
-}
-function EyeIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <ellipse cx="8" cy="8" rx="6" ry="4" />
-      <circle cx="8" cy="8" r="1.5" />
-    </svg>
-  );
-}
-function EyeOffIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <line x1="2" y1="2" x2="14" y2="14" />
-      <path d="M6.5 6.6A2 2 0 0 0 9.4 9.5" />
-      <path d="M4 4.8C2.8 5.7 2 7 2 8c0 2 2.7 4 6 4a8 8 0 0 0 3-.6" />
-      <path d="M12.5 11.3C13.5 10.4 14 9.2 14 8c0-2-2.7-4-6-4a8 8 0 0 0-1.5.15" />
-    </svg>
-  );
-}

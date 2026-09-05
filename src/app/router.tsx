@@ -17,7 +17,9 @@ import { RouteErrorBoundary } from './routes/RouteErrorBoundary';
  */
 const withSuspense = (node: ReactNode) => <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}><Loader size={100} label='loading...' /></div>}>{node}</Suspense>;
 
+/** auth pages */
 const Login = lazy(() => import('../pages/auth/Login'));
+const JoinUs = lazy(() => import('../pages/auth/JoinUs'));
 
 const LedgerListPage = lazy(() => import('../pages/ledger/LedgerListPage'));
 const LedgerDashboardPage = lazy(() => import('../pages/ledger/LedgerDashboardPage'));
@@ -55,6 +57,11 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     element: withSuspense(<Login />),
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: '/join',
+    element: withSuspense(<JoinUs />),
     errorElement: <RouteErrorBoundary />,
   },
   {

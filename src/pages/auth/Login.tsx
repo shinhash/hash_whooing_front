@@ -38,6 +38,10 @@ export default function Login() {
     }, 800);
   }
 
+  const moveJoinPage = () => {
+    navigate('/join');
+  }
+
   if(loading) return(<LoaderScreen size={100} label="loading..." />);
 
   return (
@@ -136,9 +140,7 @@ export default function Login() {
 
           <p className="mt-6 text-center text-sm text-[#64748b]">
             계정이 없으신가요?{" "}
-            <button
-              className="font-medium text-[#2dd4bf] hover:underline"
-            >
+            <button onClick={moveJoinPage} className="font-medium text-[#2dd4bf] hover:underline">
               회원가입
             </button>
           </p>
